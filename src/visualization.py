@@ -83,7 +83,7 @@ def plot_bmi_age_scatter(df):
     plt.close()
 
 
-# 7. Correlation Heatmap (Bonus)
+# 7. Correlation Heatmap
 def plot_correlation_heatmap(df):
     plt.figure(figsize=(10, 8))
     numeric_df = df[["BMI", "Age", "Sex", "Smoker", "PhysActivity", "HighBP", "HighChol", "GenHlth", "Diabetes_binary"]]
@@ -92,4 +92,36 @@ def plot_correlation_heatmap(df):
     plt.title("Correlation Heatmap of Key Variables")
     plt.tight_layout()
     plt.savefig("../plots/correlation_heatmap.png")
+    plt.close()
+
+# 8. Age vs Diabetes prevalence
+def plot_age_vs_diabetes_rate(df):
+    plt.figure(figsize=(7, 5))
+    temp = df.groupby("Age")["Diabetes_binary"].mean()
+    plt.plot(temp.index, temp.values, marker="o")
+    plt.xlabel("Age")
+    plt.ylabel("Diabetes Prevalence")
+    plt.title("Diabetes Prevalence by Age")
+    plt.tight_layout()
+    plt.savefig("../plots/age_diabetes_rate.png")
+    plt.close()
+
+# 9. Logistic regression coefficient plot
+def plot_logistic_coefficients():
+    import numpy as np
+
+    coef = np.array([0.0933, 0.2283])  # BMI, Age
+    ci_lower = np.array([0.092, 0.224])
+    ci_upper = np.array([0.095, 0.233])
+    
+    vars = ["BMI", "Age"]
+    x = np.arange(len(vars))
+
+    plt.figure(figsize=(6, 4))
+    plt.errorbar(coef, x, xerr=[coef - ci_lower, ci_upper - coef], fmt="o")
+    plt.yticks(x, vars)
+    plt.xlabel("Coefficient")
+    plt.title("Logistic Regression Coefficients with 95% CI")
+    plt.tight_layout()
+    plt.savefig("../plots/logit_coefficients.png")
     plt.close()

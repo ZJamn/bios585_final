@@ -7,7 +7,10 @@ from visualization import (
     plot_age_vs_diabetes,
     plot_physactivity_vs_diabetes,
     plot_bmi_age_scatter,
-    plot_correlation_heatmap
+    plot_correlation_heatmap,
+    plot_age_vs_diabetes_rate,
+    plot_logistic_coefficients
+
 )
 
 import os
@@ -51,7 +54,7 @@ def main():
 
     
 
-        # Step 4: Create plots
+    # Step 4: Create plots
     ensure_plot_folder()
     plot_bmi_distribution(df_clean)
     plot_diabetes_by_gender(df_clean)
@@ -60,6 +63,8 @@ def main():
     plot_physactivity_vs_diabetes(df_clean)
     plot_bmi_age_scatter(df_clean)
     plot_correlation_heatmap(df_clean)
+    plot_age_vs_diabetes_rate(df_clean)
+    plot_logistic_coefficients()
 
 
     print("\nPlots saved in ../plots/")

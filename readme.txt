@@ -5,7 +5,7 @@
 ---
 
 ## 1. Project Structure
-```
+
 bios585_final/  
 │── data/  
 │   ├── raw_diabetes.csv  
@@ -30,22 +30,23 @@ bios585_final/
 │  
 │── readme.txt  
 │── report.docx  
-```
+
 ---
 
 ## 2. How to Run the Program
 
 ### **Option 1 — Run from src folder**
-```
 cd src
 python3 main.py
-```
+
+shell
+Copy code
 
 ### **Option 2 — Run from project root**
-```
 python3 src/main.py
-```
 
+yaml
+Copy code
 
 Both commands will run the full analysis pipeline.
 
@@ -82,4 +83,5 @@ All are available in common Python scientific environments.
 - Code is modularized for clarity.
 - Figures and cleaned data are automatically generated.
 - The project is fully reproducible by running a single script.
+
 

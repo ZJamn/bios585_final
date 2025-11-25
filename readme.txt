@@ -1,107 +1,85 @@
-BIOS 585 Final Project
+# BIOS 585 Final Project  
+**Author:** Jiamin Zhao  
+**Project:** Diabetes Prediction Using BRFSS 2015 Data  
 
-Author: Jiamin Zhao
-Project: Diabetes Prediction Using BRFSS 2015 Data
+---
 
-1. Project Structure
-bios585_final/
-│── data/
-│     ├── raw_diabetes.csv
-│     └── cleaned_diabetes.csv
-│── plots/
-│── src/
-│     ├── load_clean.py
-│     ├── analysis.py
-│     ├── visualization.py
-│     └── main.py
-│── readme.txt
-│── report.docx
+## 1. Project Structure
+```
+bios585_final/  
+│── data/  
+│   ├── raw_diabetes.csv  
+│   └── cleaned_diabetes.csv  
+│  
+│── plots/  
+│   ├── bmi_distribution.png  
+│   ├── diabetes_by_gender.png  
+│   ├── smoker_vs_diabetes.png  
+│   ├── age_vs_diabetes.png  
+│   ├── physactivity_vs_diabetes.png  
+│   ├── bmi_age_scatter.png  
+│   ├── correlation_heatmap.png  
+│   ├── age_diabetes_rate.png  
+│   └── logit_coefficients.png  
+│  
+│── src/  
+│   ├── load_clean.py  
+│   ├── analysis.py  
+│   ├── visualization.py  
+│   └── main.py  
+│  
+│── readme.txt  
+│── report.docx  
+```
+---
 
-2. How to Run the Program
-Step 1 — Navigate to src folder
+## 2. How to Run the Program
+
+### **Option 1 — Run from src folder**
+```
 cd src
+python3 main.py
+```
 
-Step 2 — Run the full analysis pipeline
-python main.py
+### **Option 2 — Run from project root**
+```
+python3 src/main.py
+```
 
 
-This will:
+Both commands will run the full analysis pipeline.
 
-Load and clean the dataset
+---
 
-Perform all statistical analyses
+## 3. What the Program Does
 
-Generate 7 plots under /plots
+Running `main.py` will automatically:
 
-Save cleaned dataset under /data
+- Load and clean the dataset  
+- Perform all statistical analyses:
+  - Chi-square tests  
+  - Correlation analysis  
+  - Logistic regression  
+- Generate **9 visualizations** saved under `/plots/`
+- Save the cleaned dataset under `/data/cleaned_diabetes.csv`
 
-3. Files Description
-load_clean.py
+---
 
-Reads raw dataset, replaces missing codes, drops incomplete rows, and saves cleaned CSV.
+## 4. Package Requirements
+The project uses:
 
-analysis.py
+- pandas  
+- numpy  
+- seaborn  
+- matplotlib  
+- statsmodels  
 
-Contains statistical tests:
+All are available in common Python scientific environments.
 
-Chi-square tests
+---
 
-Pearson correlation
+## 5. Notes
+- Code is modularized for clarity.
+- Figures and cleaned data are automatically generated.
+- The project is fully reproducible by running a single script.
 
-Logistic regression model
-
-visualization.py
-
-Generates all plots, including:
-
-BMI distribution
-
-Diabetes by gender
-
-Smoker vs diabetes
-
-Physical activity vs diabetes
-
-Age vs diabetes
-
-BMI–Age scatter
-
-Correlation heatmap
-
-main.py
-
-Coordinates entire workflow and prints test results.
-
-4. Analytical Research Questions
-
-Is smoking associated with diabetes?
-
-Is age correlated with diabetes?
-
-Do BMI and age jointly predict diabetes?
-
-Does diabetes prevalence differ between males and females?
-
-Is physical activity associated with diabetes?
-
-5. Python Packages Used
-
-pandas
-
-numpy
-
-seaborn
-
-matplotlib
-
-scipy
-
-statsmodels
-
-6. Output
-
-cleaned dataset → /data/cleaned_diabetes.csv
-
-plots → /plots/*.png
-
-statistical results printed in terminal
